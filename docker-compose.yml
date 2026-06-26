@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  tradingview-mcp:
+    image: python:3.11-slim
+    container_name: tradingview-mcp
+    command: >-
+      sh -c "pip install tradingview-mcp-server && tradingview-mcp"
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
